@@ -173,7 +173,7 @@ public class MainActivity extends FragmentActivity {
 		}
 	};
 
-	public class MyPagerAdapter extends FragmentPagerAdapter {
+	public class MyPagerAdapter extends FragmentPagerAdapter implements PagerSlidingTabStrip.ViewTabProvider{
 
 		private final String[] TITLES = { "Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "Top New Paid",
 				"Top New Free", "Trending" };
@@ -189,12 +189,17 @@ public class MainActivity extends FragmentActivity {
 
 		@Override
 		public int getCount() {
-			return TITLES.length;
+			return 2;
 		}
 
 		@Override
 		public Fragment getItem(int position) {
 			return SuperAwesomeCardFragment.newInstance(position);
+		}
+
+		@Override
+		public int getTabView(int position) {
+			return R.layout.tab_layout;
 		}
 
 	}
