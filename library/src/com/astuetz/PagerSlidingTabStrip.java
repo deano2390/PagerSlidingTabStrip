@@ -432,6 +432,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     }
 
+    public View getTabView(int index){
+        if(index >= 0 && index < tabCount){
+            return tabsContainer.getChildAt(index);
+        }else{
+            throw new RuntimeException("Tab index out of bounds");
+        }
+    }
+
     void updateSelectedTab(int position) {
 
         if (pager.getAdapter() instanceof ViewTabProvider) {
